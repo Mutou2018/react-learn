@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { HashRouter as Router, Link, Switch, Route } from 'react-router-dom'
+import Book from './pages/Books'
+import TodoList from './pages/TodoList'
+import Menu from './pages/Menu'
+import './reset.css'
+import './App.scss'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  
+  render() {
+    return (
+      <div className="App">
+        <Router>
+          <div className='sideMenu'>
+            <div>
+              <div><Link to='/'>每日清单</Link></div>
+              <div><Link to='/book/'>书籍</Link></div>
+              <div><Link to='/menu/'>菜单</Link></div>
+            </div>
+          </div>
+          <Switch>
+            <Route path='/' exact component={TodoList}></Route>
+            <Route path='/book/' component={Book}></Route>
+            <Route path='/menu/' component={Menu}></Route>
+          </Switch>
+        </Router>
+        
+      </div>
+    );
+  }
 }
 
 export default App;

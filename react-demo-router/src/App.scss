@@ -1,0 +1,13 @@
+.App{
+    display: flex;
+    flex-wrap: wrap;
+    .sideMenu{
+        width: 20%;
+        height: 100vh;
+        background-color: #eee;
+    }
+    .menu{
+        width: 50%;
+        
+    }   
+}
